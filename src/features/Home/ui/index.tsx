@@ -1,4 +1,5 @@
 import React from 'react'
+import notificationSound from '../../../assets/sounds/marvel_intro.mp3'
 import * as S from './styles'
 
 const HomeUi = () => {

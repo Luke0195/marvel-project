@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import 'styled-components'
 import { ColorProps } from './interfaces'
 
 declare module 'styled-components' {
