@@ -73,6 +73,7 @@ export const RigthContent = styled.div`
 
 export const Menu = styled.div`
   display: none;
+  cursor: pointer;
   @media (max-width: 1170px) {
     display: block;
   }
