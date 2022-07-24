@@ -1,9 +1,29 @@
-import React from 'react'
-import notificationSound from '../../../assets/sounds/marvel_intro.mp3'
+import React, { useEffect, useCallback } from 'react'
+import { Header } from '../../components'
+
 import * as S from './styles'
 
 const HomeUi = () => {
-  return <S.Container> Container </S.Container>
+  const handlePlayAudio = () => {
+    if (Notification.permission === 'granted') {
+      new Audio('/marvel_intro.mp3').play()
+    }
+  }
+  useEffect(() => {
+    Notification.requestPermission()
+  }, [])
+
+  useEffect(() => {
+    if (Notification.permission === 'granted') {
+      handlePlayAudio()
+    }
+  }, [])
+
+  return (
+    <S.Container>
+      <Header />
+    </S.Container>
+  )
 }
 
 export default HomeUi
