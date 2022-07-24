@@ -1,13 +1,16 @@
 import React from 'react'
-
-import logo from '../../../assets/img/logo.svg'
-import carshop from '../../../assets/img/carshop.svg'
+import Cart from '../Cart'
+import logo from '../../../assets/img/svgs/logo.svg'
+import menu from '../../../assets/img/svgs/menu.svg'
 import * as S from './styles'
 
 const Header = (): JSX.Element => {
   return (
     <S.Container>
       <S.Content>
+        <S.Menu>
+          <img src={menu} alt="menu hamburger" />
+        </S.Menu>
         <S.LeftContent>
           <img src={logo} alt="logo da marvel" />
         </S.LeftContent>
@@ -16,13 +19,8 @@ const Header = (): JSX.Element => {
             <li> Novidades </li>
             <li> Mais vendidos</li>
             <li> Queridinhos da galera</li>
-            <li>
-              <div>
-                <img src={carshop} alt="carshop" />
-                <span> 0 </span>
-              </div>
-            </li>
           </ul>
+          <Cart />
         </S.RigthContent>
       </S.Content>
     </S.Container>

@@ -14,15 +14,35 @@ export const Content = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  @media (max-width: 1414px) {
+    width: 68.75rem;
+  }
+
+  @media (max-width: 1170px) {
+    width: 56.25rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    justify-content: space-around;
+  }
 `
 
 export const LeftContent = styled.div`
   flex: 1;
+
+  @media (max-width: 1170px) {
+    flex: none;
+  }
 `
 
 export const RigthContent = styled.div`
   flex: 1;
+  display: flex;
+  align-items: center;
   ul {
+    flex: 1;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -36,6 +56,24 @@ export const RigthContent = styled.div`
       &:hover {
         filter: brightness(60%);
       }
+      margin-right: 1rem;
     }
+  }
+
+  @media (max-width: 1170px) {
+    ul {
+      display: none;
+    }
+  }
+
+  @media (max-width: 1170px) {
+    flex: none;
+  }
+`
+
+export const Menu = styled.div`
+  display: none;
+  @media (max-width: 1170px) {
+    display: block;
   }
 `
