@@ -1,14 +1,16 @@
-import React, { useEffect, useCallback } from 'react'
-import { Header } from '../../components'
+import React, { useEffect, useRef } from 'react'
+
+import { Header, Welcome } from '../../components'
 
 import * as S from './styles'
 
 const HomeUi = () => {
+  const isLoadingRef = useRef(true)
+
   const handlePlayAudio = () => {
-    if (Notification.permission === 'granted') {
-      new Audio('/marvel_intro.mp3').play()
-    }
+    new Audio('/marvel_intro.mp3').play()
   }
+
   useEffect(() => {
     Notification.requestPermission()
   }, [])
@@ -19,8 +21,15 @@ const HomeUi = () => {
     }
   }, [])
 
+  useEffect(() => {
+    if (isLoadingRef.current) {
+      isLoadingRef.current = false
+    }
+    return
+  }, [])
   return (
     <S.Container>
+      <Welcome isLoading={isLoadingRef.current} />
       <Header />
     </S.Container>
   )
