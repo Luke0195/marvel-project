@@ -7,7 +7,7 @@ import * as S from './styles'
 const Welcome = (props: ComponentProps) => {
   const { isLoading } = props
 
-  if (!isLoading) <></>
+  if (!isLoading) return <></>
   return (
     <S.Container isLoading={isLoading}>
       <img src={logo} alt="logo do " />

@@ -1,35 +1,21 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import { Header, Welcome } from '../../components'
 
 import * as S from './styles'
 
 const HomeUi = () => {
-  const isLoadingRef = useRef(true)
-
-  const handlePlayAudio = () => {
-    new Audio('/marvel_intro.mp3').play()
-  }
+  const [loading, setLoading] = useState<boolean>(true)
 
   useEffect(() => {
-    Notification.requestPermission()
+    setTimeout(() => {
+      setLoading(false)
+    }, 2000)
   }, [])
 
-  useEffect(() => {
-    if (Notification.permission === 'granted') {
-      handlePlayAudio()
-    }
-  }, [])
-
-  useEffect(() => {
-    if (isLoadingRef.current) {
-      isLoadingRef.current = false
-    }
-    return
-  }, [])
   return (
     <S.Container>
-      <Welcome isLoading={isLoadingRef.current} />
+      <Welcome isLoading={loading} />
       <Header />
     </S.Container>
   )

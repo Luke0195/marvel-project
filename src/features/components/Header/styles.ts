@@ -31,9 +31,54 @@ export const Content = styled.div`
 
 export const LeftContent = styled.div`
   flex: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 
+  div {
+    margin-left: 4.875rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 28.5rem;
+    height: 3.063rem;
+    background: red;
+    background-color: #5c5c5c;
+    padding-right: 0.5rem;
+
+    input {
+      flex: 1;
+      height: 100%;
+      padding: 0 0.5rem;
+      border: 0;
+      background: transparent;
+      &::placeholder {
+        color: ${(props) => props.theme.colors.white};
+      }
+    }
+
+    svg {
+      width: 20px;
+      height: 20px;
+      color: ${(props) => props.theme.colors.white};
+      cursor: pointer;
+    }
+  }
+
+  @media (max-width: 1408px) {
+    div {
+      width: 18.75rem;
+      input {
+        font-size: 0.8rem;
+      }
+    }
+  }
   @media (max-width: 1170px) {
     flex: none;
+
+    div {
+      display: none;
+    }
   }
 `
 
